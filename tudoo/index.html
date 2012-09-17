@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset="utf-8"/>
+	<title>App Stub</title>
+	<link rel="stylesheet" type="text/css" href="/bags/common/tiddlers/normalize.css" />
+	<style type="text/css">
+		.completed p {
+			text-decoration: line-through;
+		}
+		.btn-delete {
+			display: none;
+		}
+		.completed .btn-delete {
+			display: inline;
+		}
+	</style>
+    </head>
+    <body>
+        <section id="todo-app">
+			<header id="header">
+				<h1>todos</h1>
+				<input id="newtodo" placeholder="What needs to be done?" autofocus>
+			</header>
+			<ul id="todo-list"></ul>
+		</section>
+		<script type="text/template" id="todo-template">
+			<div class="todo <%= completed === true ? 'completed' : '' %>">
+				<p><%- title %></p>
+				<button class="btn btn-delete">Remove</button>
+			</div>
+		</script>
+
+        <script src="/bags/common/tiddlers/jquery.js"></script>
+		<script src="/status.js"></script>
+		<script src="/bags/tsapp_public/tiddlers/underscore-min.js"></script>
+		<script src="/bags/tsapp_public/tiddlers/backbone-min.js"></script>
+		<script src="/bags/tsapp_public/tiddlers/todoItem.js"></script>
+		<script src="/bags/tsapp_public/tiddlers/todos.js"></script>
+		<script src="/bags/tsapp_public/tiddlers/todoView.js"></script>
+		<script src="/bags/tsapp_public/tiddlers/app.js"></script>
+		<script src="/bags/tsapp_public/tiddlers/script.js"></script>
+    </body>
+</html>
