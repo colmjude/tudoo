@@ -9,6 +9,16 @@ var app = app || {};
 		url: function() {
 			return '/bags/tudoo_public/tiddlers?select=tag:tudoo&fat=1';
 		},
+		// Filter collection to completed todos
+		completed: function() {
+			return this.filter(function( todo ) {
+				return todo.get('completed');
+			});
+		},
+		// Filter collection to only contain the incomplete
+		remaining: function() {
+			return this.without.apply( this, this.completed() );
+		},
 		parse: function(resp, xhr) {
 			var models = _.map(resp, function(tiddler){
 				var attrs = {
