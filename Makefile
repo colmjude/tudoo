@@ -1,6 +1,8 @@
 .PHONY: server tudoo
 
 build:
+	cp src/index.html tudoo/
+	mkdir tudoo/assets
 	cp src/js/libs/* tudoo/assets/
 	cp src/js/*.js tudoo/assets/
 	cp src/js/Collections/* tudoo/assets/
@@ -19,4 +21,5 @@ server-kill:
 tudoo: build server
 
 clean: server-kill
+	rm tudoo/index.html
 	rm tudoo/assets/*
