@@ -4,10 +4,7 @@ build:
 	cp src/index.html tudoo/
 	mkdir tudoo/assets
 	cp src/js/libs/* tudoo/assets/
-	cp src/js/*.js tudoo/assets/
-	cp src/js/Collections/* tudoo/assets/
-	cp src/js/Models/* tudoo/assets/
-	cp src/js/Views/* tudoo/assets/
+	cd src/js && r.js -o name=script.js out=../../tudoo/assets/tudoo.js baseUrl=. optimize=none
 	cp src/css/* tudoo/assets/
 
 server:
@@ -22,4 +19,4 @@ tudoo: build server
 
 clean: server-kill
 	rm tudoo/index.html
-	rm tudoo/assets/*
+	rm -r tudoo/assets

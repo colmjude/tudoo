@@ -1,9 +1,11 @@
-var app = app || {};
+define(['Collections/todos', 'Views/todoView'],
+	function(Todos, todoView) {
 
-$(function( $ ) {
 	'use strict';
+	
+	console.log('here');
 
-	app.AppView = Backbone.View.extend({
+	var AppView = Backbone.View.extend({
 		el: '#todo-app',
 		events: {
 			'keypress #newtodo':	'createOnEnter'
@@ -11,32 +13,34 @@ $(function( $ ) {
 		initialize: function() {
 			this.input = this.$('#newtodo');
 
-			window.app.Todos.on( 'reset', this.addAll, this );
-			window.app.Todos.on( 'add', this.addOne, this );
+			Todos.on( 'reset', this.addAll, this );
+			Todos.on( 'add', this.addOne, this );
 
-			app.Todos.fetch();
+			Todos.fetch();
 		},
 		render: function() {
-			if( app.Todos.length ) {
+			if( Todos.length ) {
 				
 			} else {
 				
 			}
 		},
 		addOne: function( todo ) {
-			var view = new app.todoView({ model: todo });
+			var view = new todoView({ model: todo });
 			$('#todo-list').append( view.render().el );
 		},
 		addAll: function() {
-			app.Todos.each( this.addOne, this );
+			Todos.each( this.addOne, this );
 		},
 		createOnEnter: function( e ) {
 			if ( e.which !== ENTER_KEY || !this.input.val().trim() ) {
 				return;
 			}
 
-			app.Todos.create( { title: this.input.val().trim() } );
+			Todos.create( { title: this.input.val().trim() } );
 			this.input.val('');
 		}
 	});
+	
+	return AppView;
 });

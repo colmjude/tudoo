@@ -1,11 +1,11 @@
-var app = app || {};
+define([], function() {
 
-(function() {
 	'use strict';
 
 	var host = tiddlyweb.status.server_host.host;
 	console.log("some host: " + host);
-	app.todoItem = Backbone.Model.extend({
+
+	var todoItem = Backbone.Model.extend({
 		idAttribute: "title", // without an id model is considered to be new
 		defaults: {
 			id: Math.floor((Math.random()*10000)+1),
@@ -36,4 +36,7 @@ var app = app || {};
 			};
 		}
 	});
-}());
+
+	return todoItem;
+
+});

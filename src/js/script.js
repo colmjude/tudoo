@@ -1,9 +1,12 @@
-var app = app || {};
-var ENTER_KEY = 13;
+require([
+	'Views/app'
+], function(AppView){
 
-$(function() {
+	var app = app || {};
+	var ENTER_KEY = 13;
 
+	console.log(AppView);
 	// Kick things off by creating the **App**.
-	new app.AppView();
+	window.App = new AppView();
 
 });

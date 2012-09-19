@@ -1,9 +1,7 @@
-var app = app || {};
-
-$(function() {
+define([], function() {
 	'use strict';
 
-	app.todoView = Backbone.View.extend({
+	var todoView = Backbone.View.extend({
 		tagName: "li",
 		template: _.template( $('#todo-template').html() ),
 		events: {
@@ -28,5 +26,7 @@ $(function() {
 			this.model.destroy();
 		}
 	});
+
+	return todoView;
 
 });

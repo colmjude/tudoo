@@ -1,11 +1,9 @@
-var app = app || {};
-
-(function() {
+define(['Models/todoItem'], function(todoItem) {
 	'use strict';
 
 	var host = tiddlyweb.status.server_host.host;
 	var TodoCollection = Backbone.Collection.extend({
-		model: app.todoItem,
+		model: todoItem,
 		url: function() {
 			return '/bags/tudoo_public/tiddlers?select=tag:tudoo&fat=1';
 		},
@@ -36,5 +34,5 @@ var app = app || {};
 		}
 	});
 
-	app.Todos = new TodoCollection();
-}());
+	return new TodoCollection();
+});
