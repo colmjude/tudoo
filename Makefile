@@ -1,4 +1,7 @@
-.PHONY: server
+.PHONY: server tudoo
+
+build:
+	cp src/js/libs/* tudoo/assets/
 
 server:
 	cd tudoo; tsapp serve & echo $$! > .pid
@@ -7,3 +10,10 @@ server:
 server-kill:
 	kill `cat tudoo/.pid` || true
 	rm tudoo/.pid
+
+tudoo: build server
+
+clean: server-kill
+	rm tudoo/assets/backbone*
+	rm tudoo/assets/jquery*
+	rm tudoo/assets/underscore*
