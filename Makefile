@@ -2,6 +2,10 @@
 
 build:
 	cp src/js/libs/* tudoo/assets/
+	cp src/js/*.js tudoo/assets/
+	cp src/js/Collections/* tudoo/assets/
+	cp src/js/Models/* tudoo/assets/
+	cp src/js/Views/* tudoo/assets/
 	cp src/css/* tudoo/assets/
 
 server:
@@ -15,7 +19,4 @@ server-kill:
 tudoo: build server
 
 clean: server-kill
-	rm tudoo/assets/backbone*
-	rm tudoo/assets/jquery*
-	rm tudoo/assets/underscore*
-	rm tudoo/assets/*.css
+	rm tudoo/assets/*
