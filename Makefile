@@ -1,11 +1,18 @@
-.PHONY: server tudoo
+.PHONY: server tudoo require setup
 
-build:
+build: move-assets require
+
+move-assets:
 	cp src/index.html tudoo/
-	mkdir tudoo/assets
 	cp src/js/libs/* tudoo/assets/
-	cd src/js && r.js -o name=script.js out=../../tudoo/assets/tudoo.js baseUrl=. optimize=none
 	cp src/css/* tudoo/assets/
+
+update: require
+	cp src/index.html tudoo/
+	cp src/css/* tudoo/assets/
+
+require:
+	cd src/js && r.js -o name=script.js out=../../tudoo/assets/tudoo.js baseUrl=. optimize=none
 
 server:
 	cd tudoo; tsapp serve & echo $$! > .pid
@@ -19,4 +26,4 @@ tudoo: build server
 
 clean: server-kill
 	rm tudoo/index.html
-	rm -r tudoo/assets
+	rm -r tudoo/assets/*
