@@ -2,22 +2,24 @@
 <html>
     <head>
 	<meta charset="utf-8"/>
-	<title>App Stub</title>
+	<title>Tudoo</title>
 	<link rel="stylesheet" type="text/css" href="/bags/common/tiddlers/normalize.css" />
 	<link rel="stylesheet" href="/bags/tudoo_pubic/tiddlers/tudoo.css" />
     </head>
     <body>
         <section id="todo-app">
 			<header id="header">
-				<h1>todos</h1>
-				<input id="newtodo" placeholder="What needs to be done?" autofocus>
+				<section>
+					<h1>tudoos</h1>
+					<input id="newtodo" placeholder="What needs to be done?" autofocus>
+				</section>
 			</header>
 			<ul id="todo-list"></ul>
 		</section>
 		<script type="text/template" id="todo-template">
 			<div class="todo <%= completed === true ? 'completed' : '' %>">
-				<p><%- title %></p>
-				<button class="btn btn-delete">Remove</button>
+				<%- title %>
+				<a href="#" class="btn btn-delete"></a>
 			</div>
 		</script>
 
