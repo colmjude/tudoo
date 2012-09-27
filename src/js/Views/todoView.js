@@ -3,7 +3,7 @@ define([], function() {
 
 	var todoView = Backbone.View.extend({
 		tagName: "li",
-		template: _.template( $('#todo-template').html() ),
+		template: Handlebars.compile( $('#todo-template-hb').html() ),
 		events: {
 			'click .todo': 'toggleComplete',
 			'click .btn-delete': 'remove'

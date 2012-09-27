@@ -16,9 +16,9 @@
 			</header>
 			<ul id="todo-list"></ul>
 		</section>
-		<script type="text/template" id="todo-template">
-			<div class="todo <%= completed === true ? 'completed' : '' %>">
-				<%- title %>
+		<script type="text/x-handlebars-template" id="todo-template-hb">
+			<div class="todo {{completed-todo}}">
+				{{title}}
 				<a href="#" class="btn btn-delete"></a>
 			</div>
 		</script>
@@ -26,6 +26,7 @@
 		<script src="/bags/tsapp_public/tiddlers/require.js"></script>
         <script src="/bags/common/tiddlers/jquery.js"></script>
 		<script src="/status.js"></script>
+		<script src="/bags/tsapp_public/tiddlers/handlebars-1.0.rc.1.js"></script>
 		<script src="/bags/tsapp_public/tiddlers/underscore-min.js"></script>
 		<script src="/bags/tsapp_public/tiddlers/backbone-min.js"></script>
 		<script src="tudoo.js"></script>
