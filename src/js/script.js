@@ -3,7 +3,8 @@ require([
 ], function(AppView){
 
 	var app = app || {};
-	var ENTER_KEY = 13;
+	// TODO: fix this, don't want it to be a global
+	ENTER_KEY = 13;
 
 	console.log(AppView);
 	// Kick things off by creating the **App**.
