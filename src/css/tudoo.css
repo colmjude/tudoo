@@ -83,8 +83,9 @@ header section {
 	border-bottom: 1px solid #ddd;
 }
 
-#todo-list li:hover {
+.no-touch #todo-list li:hover {
 	background: #e5eced;
+	cursor: pointer;
 }
 
 #todo-list li:last-child {
@@ -96,10 +97,6 @@ header section {
 	height: 72px;
 	line-height: 72px;
 	padding-right: 72px;
-}
-
-#todo-list .todo:hover {
-	cursor: pointer;
 }
 
 .completed {
@@ -127,7 +124,7 @@ header section {
 	right: 10px;
 }
 
-.btn-delete:hover {
+.no-touch .btn-delete:hover {
 	text-decoration: none;
 	color: #555;
 	background: #f5f5f5;
@@ -160,7 +157,7 @@ header section {
 	box-shadow: 0px 3px 8px #fc7365, inset 0px 2px 3px #fff;
 }
 
-li:hover .completed .btn-delete {
+.no-touch li:hover .completed .btn-delete {
 	-moz-animation-duration: 1s;
 	-webkit-animation-duration: 1s;
 	-moz-animation-name: btnPulse;
