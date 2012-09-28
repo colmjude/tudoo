@@ -6,7 +6,8 @@ define(['Collections/todos', 'Views/todoView'],
 	var AppView = Backbone.View.extend({
 		el: '#todo-app',
 		events: {
-			'keypress #newtodo':	'createOnEnter'
+			'keypress #newtodo'	: 'createOnEnter',
+			'blur #newtodo'		: 'resetInput'
 		},
 		initialize: function() {
 			this.input = this.$('#newtodo');
@@ -36,7 +37,10 @@ define(['Collections/todos', 'Views/todoView'],
 			}
 
 			Todos.create( { title: this.input.val().trim() } );
-			this.input.val('');
+			this.input.attr("placeholder", "what else...").val('');
+		},
+		resetInput: function() {
+			this.input.attr('placeholder', "What needs to be done?");
 		}
 	});
 	
