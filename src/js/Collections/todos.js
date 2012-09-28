@@ -1,11 +1,11 @@
-define(['Models/todoItem'], function(todoItem) {
+define(['Models/todoItem', 'Models/UserStatus'], function(todoItem, status) {
 	'use strict';
 
 	var host = tiddlyweb.status.server_host.host;
 	var TodoCollection = Backbone.Collection.extend({
 		model: todoItem,
 		url: function() {
-			return '/bags/tudoo_public/tiddlers?select=tag:tudoo&fat=1';
+			return '/bags/' + status.attributes.space.recipe + '/tiddlers?select=tag:tudoo&fat=1';
 		},
 		// Filter collection to completed todos
 		completed: function() {
