@@ -8,7 +8,7 @@ move-assets:
 	cp src/css/* tudoo/assets/
 
 update: require
-	cp src/index.html tudoo/
+	cp src/*.html tudoo/
 	cp src/css/* tudoo/assets/
 
 require:
