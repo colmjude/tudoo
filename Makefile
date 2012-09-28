@@ -3,7 +3,7 @@
 build: move-assets require
 
 move-assets:
-	cp src/index.html tudoo/
+	cp src/*.html tudoo/
 	cp src/js/libs/* tudoo/assets/
 	cp src/css/* tudoo/assets/
 
@@ -25,5 +25,5 @@ server-kill:
 tudoo: build server
 
 clean: server-kill
-	rm tudoo/index.html
+	rm tudoo/*.html
 	rm -r tudoo/assets/*
