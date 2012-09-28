@@ -1,7 +1,9 @@
+/*
+ * Collection of todo items
+ */
 define(['Models/todoItem', 'Models/UserStatus'], function(todoItem, status) {
 	'use strict';
 
-	var host = tiddlyweb.status.server_host.host;
 	var TodoCollection = Backbone.Collection.extend({
 		model: todoItem,
 		url: function() {
@@ -17,6 +19,7 @@ define(['Models/todoItem', 'Models/UserStatus'], function(todoItem, status) {
 		remaining: function() {
 			return this.without.apply( this, this.completed() );
 		},
+		// map returned data (tiddler format) into model format
 		parse: function(resp, xhr) {
 			var models = _.map(resp, function(tiddler){
 				var attrs = {

@@ -1,3 +1,6 @@
+/*
+ * The todo item model
+ */
 define(['Models/UserStatus'], function(status) {
 
 	'use strict';
@@ -33,6 +36,8 @@ define(['Models/UserStatus'], function(status) {
 			};
 		},
 		archiveIt: function() {
+			// add 'archive' tag to model
+			// once saved on server, trigger archived event
 			this.save({
 				tags: $.merge(this.get('tags'), ['archive'])
 			}, { wait: true,

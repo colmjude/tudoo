@@ -1,3 +1,6 @@
+/*
+ * Main App View
+ */
 define(['Collections/todos', 'Views/todoView'],
 	function(Todos, todoView) {
 

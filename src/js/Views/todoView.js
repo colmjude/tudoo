@@ -1,3 +1,6 @@
+/*
+ * Individual todo view
+ */
 define([], function() {
 	'use strict';
 

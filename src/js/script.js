@@ -1,3 +1,6 @@
+/*
+ * Kick off script
+ */
 require([
 	'Views/app'
 ], function(AppView){
