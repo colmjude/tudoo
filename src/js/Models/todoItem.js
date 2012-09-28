@@ -31,6 +31,15 @@ define(['Models/UserStatus'], function(status) {
 				},
 				tags: this.get("tags")
 			};
+		},
+		archiveIt: function() {
+			this.save({
+				tags: $.merge(this.get('tags'), ['archive'])
+			}, { wait: true,
+				 success: function(model, resp) {
+					model.trigger('archived');
+				}
+			});
 		}
 	});
 

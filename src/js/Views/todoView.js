@@ -10,7 +10,7 @@ define([], function() {
 		},
 		initialize: function() {
 			this.model.on( 'change', this.render, this );
-			this.model.on( 'destroy', this.removeDestroyed, this );
+			this.model.on( 'archived', this.removeArchived, this );
 		},
 		render: function() {
 			this.$el.html( this.template( this.model.attributes ) );
@@ -23,9 +23,9 @@ define([], function() {
 		remove: function(e) {
 			e.preventDefault();
 			e.stopPropagation();
-			this.model.destroy({wait: true}); // wait until server responds to remove todo
+			this.model.archiveIt();
 		},
-		removeDestroyed: function() {
+		removeArchived: function() {
 			$(this.el).remove();
 		}
 	});

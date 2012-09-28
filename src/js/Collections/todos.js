@@ -5,7 +5,7 @@ define(['Models/todoItem', 'Models/UserStatus'], function(todoItem, status) {
 	var TodoCollection = Backbone.Collection.extend({
 		model: todoItem,
 		url: function() {
-			return '/bags/' + status.attributes.space.recipe + '/tiddlers?select=tag:tudoo&fat=1';
+			return '/bags/' + status.attributes.space.recipe + '/tiddlers?select=tag:tudoo&select=tag:!archive&fat=1';
 		},
 		// Filter collection to completed todos
 		completed: function() {
