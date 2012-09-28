@@ -1,9 +1,6 @@
-define([], function() {
+define(['Models/UserStatus'], function(status) {
 
 	'use strict';
-
-	var host = tiddlyweb.status.server_host.host;
-	console.log("some host: " + host);
 
 	var todoItem = Backbone.Model.extend({
 		idAttribute: "title", // without an id model is considered to be new
@@ -17,7 +14,7 @@ define([], function() {
 			//geo
 		},
 		url: function() {
-			return "/bags/tudoo_public/tiddlers/" + this.get('title');
+			return "/bags/" + status.attributes.space.recipe + "/tiddlers/" + this.get('title');
 		},
 		toggle: function() {
 			this.save({

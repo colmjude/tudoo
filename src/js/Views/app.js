@@ -2,8 +2,6 @@ define(['Collections/todos', 'Views/todoView'],
 	function(Todos, todoView) {
 
 	'use strict';
-	
-	console.log('here');
 
 	var AppView = Backbone.View.extend({
 		el: '#todo-app',

@@ -20,7 +20,6 @@ define([], function() {
 			this.model.toggle();
 		},
 		remove: function(e) {
-			console.log(e);
 			e.preventDefault();
 			e.stopPropagation();
 			this.model.destroy();

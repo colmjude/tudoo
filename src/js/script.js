@@ -11,7 +11,6 @@ require([
 	  return this.completed === true ? 'completed' : '';
 	});
 
-	console.log(AppView);
 	// Kick things off by creating the **App**.
 	window.App = new AppView();
 
