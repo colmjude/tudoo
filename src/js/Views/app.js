@@ -39,7 +39,18 @@ define(['Collections/todos', 'Views/todoView'],
 				return;
 			}
 
-			Todos.create( { title: this.input.val().trim() } );
+			var todoText = this.input.val().trim(),
+				textParts = todoText.split("#"),
+				tags = ['tudoo'];
+
+			if(textParts.length > 1 ) {
+				var i = 1,
+					len = textParts.length;
+				for( ; i < len; i++) {
+					tags.push(textParts[i].trim());
+				}
+			}
+			Todos.create( { title: textParts[0].trim(), tags: tags  } );
 			this.input.attr("placeholder", "what else...").val('');
 		},
 		resetInput: function() {
