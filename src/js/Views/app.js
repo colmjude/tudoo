@@ -10,10 +10,12 @@ define(['Collections/todos', 'Views/todoView'],
 		el: '#todo-app',
 		events: {
 			'keypress #newtodo'	: 'createOnEnter',
-			'blur #newtodo'		: 'resetInput'
+			'blur #newtodo'		: 'resetInput',
+			'click .toggle button'	: 'toggleCompleted'
 		},
 		initialize: function() {
 			this.input = this.$('#newtodo');
+			this.tudooList = this.$el.find("#todo-list");
 
 			Todos.on( 'reset', this.addAll, this );
 			Todos.on( 'add', this.addOne, this );
@@ -55,6 +57,9 @@ define(['Collections/todos', 'Views/todoView'],
 		},
 		resetInput: function() {
 			this.input.attr('placeholder', "What needs to be done?");
+		},
+		toggleCompleted: function(e) {
+			this.tudooList.toggleClass('hide-completed');
 		}
 	});
 	
