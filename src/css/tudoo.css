@@ -68,6 +68,10 @@ header section {
    color: #75acb4;
 }
 
+#newtodo:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
 #todo-list {
 	background: #f9f9f9;
 	border-radius: 0 0 2px 2px;
